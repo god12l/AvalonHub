@@ -14,10 +14,11 @@ local Window = Fluent:CreateWindow({
 
 --Fluent provides Lucide Icons https://lucide.dev/icons/ for the tabs, icons are optional
 local Tabs = {
-   Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
+   
     Main = Window:AddTab({ Title = "Home", Icon = "home" }),
-    Settings = Window:AddTab({ Title = "Combat", Icon = "swords" })
-    Settings = Window:AddTab({ Title = "Stats", Icon = "bar-chart" })
+    Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
+    Combat = Window:AddTab({ Title = "Combat", Icon = "swords" })
+    Stats = Window:AddTab({ Title = "Stats", Icon = "bar-chart" })
 }
 
 local Options = Fluent.Options
