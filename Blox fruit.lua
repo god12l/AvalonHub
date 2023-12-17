@@ -7,18 +7,18 @@ local Window = Fluent:CreateWindow({
     SubTitle = "by peerlessgod ",
     TabWidth = 160,
     Size = UDim2.fromOffset(580, 460),
-    Acrylic = true, -- The blur may be detectable, setting this to false disables blur entirely
+    Acrylic = false, -- The blur may be detectable, setting this to false disables blur entirely
     Theme = "Dark",
     MinimizeKey = Enum.KeyCode.LeftControl -- Used when theres no MinimizeKeybind
 })
 
 --Fluent provides Lucide Icons https://lucide.dev/icons/ for the tabs, icons are optional
 local Tabs = {
-   
-    Main = Window:AddTab({ Title = "Home", Icon = "home" }),
-    Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
-    Combat = Window:AddTab({ Title = "Combat", Icon = "swords" })
-    Stats = Window:AddTab({ Title = "Stats", Icon = "bar-chart" })
+   Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
+    Home = Window:AddTab({ Title = "Home", Icon = "home" }),
+    Combat = Window:AddTab({ Title = "Combat", Icon = "swords" }),
+    Stats = Window:AddTab({ Title = "Stats", Icon = "bar-chart" }),
+    
 }
 
 local Options = Fluent.Options
