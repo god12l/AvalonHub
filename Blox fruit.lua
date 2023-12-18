@@ -22,6 +22,7 @@ local Tabs = {
     DevilFruit = Window:AddTab({ Title = "Devil Fruit", Icon = "apple" }),
     Shop = Window:AddTab({ Title = "Shop", Icon = "shopping-cart" }),
     SettingsUi = Window:AddTab({ Title = "Settings UI", Icon = "settings" }),
+    Race = Window:AddTab({ Title = "Auto Race", Icon = "users" }),
     Settings = Window:AddTab({ Title = "Settings", Icon = "settings" }) -- Added Settings tab
 }
 
