@@ -3,7 +3,7 @@ local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/d
 local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
 
 local Window = Fluent:CreateWindow({
-    Title = "Avalon Hub beta 1.0  " .. Fluent.Version,
+    Title = "Avalon Hub Blox fruits(beta 0.1)" .. Fluent.Version,
     SubTitle = "by peerlessgod ",
     TabWidth = 160,
     Size = UDim2.fromOffset(580, 460),
