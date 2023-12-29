@@ -1,31 +1,3 @@
--- Gui to Lua
--- Version: 3.2
-
--- Instances:
-
-local ImageButton = Instance.new("ImageButton")
-local UIAspectRatioConstraint = Instance.new("UIAspectRatioConstraint")
-
---Properties:
-
-ImageButton.Parent = game.StarterGui.ScreenGui.Frame
-ImageButton.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
-ImageButton.BackgroundTransparency = 0.100
-ImageButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
-ImageButton.BorderSizePixel = 0
-ImageButton.Position = UDim2.new(0.162, 0, 0, 0)
-ImageButton.Size = UDim2.new(1, 0, 1, 0)
-ImageButton.Image = "rbxassetid://15799458477"
-
-ImageButton.MouseButton1Down:Connect(function()
-	game:GetService("VirtualInputManager"):SendKeyEvent(true, "LeftControl" , false , game)
-end)
-
-
-UIAspectRatioConstraint.Parent = ImageButton
-
-
-
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
 local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
 local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
@@ -128,4 +100,30 @@ Options.MyToggle:SetValue(false)
 SaveManager:SetLibrary(Fluent)
 InterfaceManager:SetLibrary(Fluent)
 
+
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local ImageButton = Instance.new("ImageButton")
+local UIAspectRatioConstraint = Instance.new("UIAspectRatioConstraint")
+
+--Properties:
+
+ImageButton.Parent = game.StarterGui.ScreenGui.Frame
+ImageButton.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+ImageButton.BackgroundTransparency = 0.100
+ImageButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ImageButton.BorderSizePixel = 0
+ImageButton.Position = UDim2.new(0.162, 0, 0, 0)
+ImageButton.Size = UDim2.new(1, 0, 1, 0)
+ImageButton.Image = "rbxassetid://15799458477"
+
+ImageButton.MouseButton1Down:Connect(function()
+	game:GetService("VirtualInputManager"):SendKeyEvent(true, "LeftControl" , false , game)
+end)
+
+
+UIAspectRatioConstraint.Parent = ImageButton
 
