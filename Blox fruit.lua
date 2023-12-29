@@ -9,10 +9,9 @@ local Window = Fluent:CreateWindow({
     Size = UDim2.fromOffset(580, 460),
     Acrylic = false,
     Theme = "Dark",
-    MinimizeKey = Enum.KeyCode.LeftControl -- Used when there's no MinimizeKeybind
+    MinimizeKey = Enum.KeyCode.LeftControl
 })
 
--- Fluent provides Lucide Icons https://lucide.dev/icons/ for the tabs; icons are optional
 local Tabs = {
     Settings = Window:AddTab({ Title = "Settings", Icon = "settings" }),
     Home = Window:AddTab({ Title = "Home", Icon = "home" }),
@@ -24,67 +23,79 @@ local Tabs = {
     Shop = Window:AddTab({ Title = "Shop", Icon = "shopping-cart" }),
     SettingsUi = Window:AddTab({ Title = "Settings UI", Icon = "settings" }),
     Race = Window:AddTab({ Title = "Auto Race", Icon = "users" }),
-    Miscs = Window:AddTab({ Title = "Miscellaneous", Icon = "scroll" }) -- Corrected "miscellaneous"
+    Miscs = Window:AddTab({ Title = "Miscellaneous", Icon = "scroll" })
 }
 
 local Options = Fluent.Options
 
-do
-    Fluent:Notify({
-        Title = "Notification",
-        Content = "This is a notification",
-        SubContent = "SubContent", -- Optional
-        Duration = 5 -- Set to nil to make the notification not disappear
-    })
+Fluent:Notify({
+    Title = "Notification",
+    Content = "This is a notification",
+    SubContent = "SubContent",
+    Duration = 5
+})
 
-    Tabs.Home:AddParagraph({
-        Title = "Paragraph",
-        Content = "This is a paragraph.\nSecond line!"
-    })
+Tabs.Home:AddParagraph({
+    Title = "Paragraph",
+    Content = "This is a paragraph.\nSecond line!"
+})
 
-    Tabs.Home:AddButton({
-        Title = "Button",
-        Description = "Very important button",
-        Callback = function()
-            Window:Dialog({
-                Title = "Title",
-                Content = "This is a dialog",
-                Buttons = {
-                    {
-                        Title = "Confirm",
-                        Callback = function()
-                            print("Confirmed the dialog.")
-                        end
-                    },
-                    {
-                        Title = "Cancel",
-                        Callback = function()
-                            print("Cancelled the dialog.")
-                        end
-                    }
+Tabs.Home:AddButton({
+    Title = "Button",
+    Description = "Very important button",
+    Callback = function()
+        Window:Dialog({
+            Title = "Title",
+            Content = "This is a dialog",
+            Buttons = {
+                {
+                    Title = "Confirm",
+                    Callback = function()
+                        print("Confirmed the dialog.")
+                    end
+                },
+                {
+                    Title = "Cancel",
+                    Callback = function()
+                        print("Cancelled the dialog.")
+                    end
                 }
-            })
-        end
-    })
+            }
+        })
+    end
+})
 
-    local Toggle = Tabs.Home:AddToggle("MyToggle", { Title = "Toggle", Default = false })
+-- Create a button with a dropdown menu
+local DropdownButton = Tabs.Home:AddButton({
+    Title = "Dropdown Button",
+    Description = "Click me for options",
+    Callback = function()
+        print("Dropdown button clicked!")
+    end
+})
 
-    Toggle:OnChanged(function()
-        print("Toggle changed:", Options.MyToggle.Value)
-    end)
+-- Create a dropdown menu
+local DropdownMenu = Fluent:CreateDropdown({
+    Options = {
+        "Option 1",
+        "Option 2",
+        "Option 3"
+    },
+    Callback = function(selectedOption)
+        print("Selected option:", selectedOption)
+    end
+})
 
-    Options.MyToggle:SetValue(false)
+-- Attach the dropdown menu to the button
+DropdownButton:SetDropdown(DropdownMenu)
 
-    -- The rest of your script remains unchanged...
-end
+local Toggle = Tabs.Home:AddToggle("MyToggle", { Title = "Toggle", Default = false })
 
--- Addons:
--- SaveManager (Allows you to have a configuration system)
--- InterfaceManager (Allows you to have an interface management system)
+Toggle:OnChanged(function()
+    print("Toggle changed:", Options.MyToggle.Value)
+end)
 
--- Hand the library over to our managers
+Options.MyToggle:SetValue(false)
+
 SaveManager:SetLibrary(Fluent)
 InterfaceManager:SetLibrary(Fluent)
-
--- Ignore keys that are used by ThemeManager
-
